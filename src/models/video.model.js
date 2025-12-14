@@ -15,13 +15,17 @@ const commentSchema = new Schema(
   { timestamps: true }
 );
 
-const videoModel = new Schema(
+const videoSchema = new Schema(
   {
     title: {
       type: String,
       required: true,
     },
     description: {
+      type: String,
+      required: true,
+    },
+    thumbnail: {
       type: String,
       required: true,
     },
@@ -35,7 +39,7 @@ const videoModel = new Schema(
       required: true,
     },
     author: {
-      type: Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId, 
       ref: "User",
     },
     totalViews: {
@@ -62,4 +66,4 @@ const videoModel = new Schema(
   { timestamps: true }
 );
 
-module.exports = model("Video", videoModel);
+module.exports = model("Video", videoSchema);
