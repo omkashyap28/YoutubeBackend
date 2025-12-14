@@ -62,4 +62,4 @@ const videoModel = new Schema(
   { timestamps: true }
 );
 
-export const Video = model("Video", videoModel);
+module.exports = model("Video", videoModel);

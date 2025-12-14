@@ -1,21 +1,15 @@
-const database = require("./db/database");
 require("dotenv").config({
   path: ".env",
 });
+const app = require("./app");
+const database = require("./db/database");
+
+const port = process.env.PORT || 8000;
 
 database.connectDB(process.env.MONGODB_URI).then((res) => {
   if (res) {
-    console.log(res);
-    const express = require("express");
-    const app = express();
-    const port = process.env.PORT || 8000;
-
-    app.get("/", function (req, res) {
-      res.send("HELLO BACKEND");
-    });
-
     app.listen(port, function () {
-      console.log("App id running on ", port);
+      console.log("App is running on ", port);
     });
   }
 });
